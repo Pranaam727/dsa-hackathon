@@ -33,6 +33,7 @@ When student index records are split into disjoint small tree fragments (1-node,
 | :--- | :--- | :--- | :--- |
 | `bst_core.py` | Core Data Structure | Node class, strict global BST validation, traversal, leaf helpers, and visual ASCII formatter. | `Node`, `is_valid_bst`, `inorder_traversal`, `collect_leaf_ids`, `format_tree` |
 | `merger.py` | Recovery Engine | Parses fragment representations and stitches them into a unified BST. | `parse_fragments`, `recover_student_index`, `merge_fragments` |
+| `web_ui.py` | Interactive Web Dashboard | Zero-dependency browser interface with SVG BST rendering, viva presets, and live test runner. | `main`, `RecoveryServerHandler` |
 | `app.py` | CLI & UI Runner | Interactive menu and preset demos (illustrative, unseen, ordering conflicts, disconnected fragments). | `main`, `display_result`, `run_demo_*` |
 | `test_suite.py` | Verification Suite | Unit tests verifying all valid merges, edge cases, and failure modes. | `TestStudentIndexRecovery` |
 
@@ -80,8 +81,13 @@ Execute the full test suite verifying illustrative merges, ancestor bound confli
 python -m unittest test_suite.py -v
 ```
 
-### Running the Application (`app.py`)
-Launch the interactive terminal interface:
+### Running the Application (`app.py` & `web_ui.py`)
+Launch the browser-based interactive web dashboard (auto-opens in browser, zero external packages):
+```bash
+python web_ui.py
+```
+
+Launch the interactive terminal CLI:
 ```bash
 python app.py
 ```
